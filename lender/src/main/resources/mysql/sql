@@ -1,0 +1,15 @@
+drop table lend_user_register_t;
+CREATE TABLE `lend_user_register_t` (
+  `user_id` varchar(64) NOT NULL,
+  `user_account` varchar(64) DEFAULT NULL,
+  `user_name` varchar(64) NOT NULL,
+  `user_telephone` varchar(16) NOT NULL,
+  `user_identity_card` varchar(32) NOT NULL,
+  `user_email` varchar(64) DEFAULT NULL,
+  `user_address` varchar(1024) DEFAULT NULL,
+  `user_password` varchar(32) NOT NULL,
+  `delete_status` int(1) DEFAULT NULL,
+  `create_time` datetime NOT NULL,
+  `modify_time` datetime NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

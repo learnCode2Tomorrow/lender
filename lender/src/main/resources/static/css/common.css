@@ -1,0 +1,114 @@
+body, p, ul, ol, li, h1, h2, h3, h4, h5, h6{
+	margin: 0; 
+	padding: 0;
+}
+
+ul{
+	list-style: none;
+}
+
+.form-signin{
+	width:100%;
+	max-width:320px;
+	padding:15px;
+	margin:60px auto;
+}
+
+.input-width {
+	width: 90%;
+}
+
+.required {
+	color:red;
+	border:1px solid red;
+}
+
+.loanNav { 
+	width: 100%; 
+	overflow: hidden;
+	background: #fff;
+}
+
+.loanNav>ul{
+	width:100%;
+	height:100px;
+	padding:10px 0 0 3%;	
+}
+
+.loanNav li {
+	float: left;
+	width:25%;
+	height:80px; 
+	padding-right:3%;
+	text-align: center; 
+}
+
+.loanNav li a{
+	display:inline-block;
+	height:80px; 
+	text-align: center; 
+}
+
+.loanNav p{
+	font-size: 12px; 
+	color: #333; 
+	margin-top: 3px; 
+}
+
+/*背景色*/
+.bgc_5bca11{background: #5bca11;}    /*2号绿色，如保险内容块左侧更多悬浮块底色*/
+.bgc_ff6600{background: #ff6600;}    /*2号橘黄色，如贷款内容块左侧更多悬浮块底色*/
+.bgc_e93230{background: #e93230;}    /*2号红色，如投资理财内容块左侧更多悬浮块底色*/
+
+/*边框颜色*/
+.bdt_7fd049{ border-top: 2px solid #7fd049;}
+.bdt_ff7e00{ border-top: 2px solid #ff7e00;}
+.bdt_eb4847{ border-top: 2px solid #eb4847;}
+.bdt{border-top: 1px solid #dcdcdc;}
+.bdb{border-bottom: 1px solid #dcdcdc;}
+.bdr{border-right: 1px solid #dcdcdc;}
+
+.c:after { clear: both; content: " "; display: block; height: 0; overflow: hidden; }
+.c { *zoom: 1; }
+
+/*主体样式*/
+.publicBox{ width: 100%; background: #fff; overflow: hidden;}
+.publicPro{ height: 259px; overflow-y: hidden;}
+.publicPro .left_box{ width: 36%; height: 100%;float: left; color: #fff; }
+.publicPro .left_box a{ display: block; }
+.publicPro .left_banner{ padding: 8px 6px; background-size: 100% auto; font-size: 12px; padding-bottom: 102px; color: #fff;}
+.pb-banner-tit{ padding-bottom: 8px; font-weight: normal; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.pb-banner-cont{ padding-bottom: 10px; line-height: 13px;}
+.pb-banner-btnSty{padding: 2px 8px; background-color: rgba(0,0,0,.2); display: inline-block; border-radius: 8px; background-clip: padding-box;}
+
+/*左侧banner背景*/
+.ins-banner{ background: url(http://img2.pingan.com/app_images/wap/v30/c3/chaoshi/index201509/left_banner1.png) bottom center no-repeat #7fd049; }
+.bank-banner{ background: url(http://img2.pingan.com/app_images/wap/v30/c3/chaoshi/index201509/left_banner2.png) bottom center no-repeat #ff7e00; }
+.inv-banner{ background: url(http://img2.pingan.com/app_images/wap/v30/c3/chaoshi/index201509/left_banner3.png) bottom center no-repeat #eb4847; }
+
+.publicPro ul{ width: 64%; height: 100%; float: right; }
+.publicPro ul li{ width: 49.5%; float: left; color:#666; font-size: 12px; text-align: center; -webkit-tap-highlight-color: rgba(0,0,0,.2); padding-bottom:5px;}
+.publicPro ul li a{ width: 100%; padding-top: 8px; display: inline-block; }
+/*贷款*/
+.insuranceBox li{ width: 49.8%; height: 90px; padding-bottom: 0; font-size: 12px; float: left; border-bottom: 1px solid #dcdcdc; display: inline-flex; }
+.insuranceBox li:nth-child(2n+1) { border-right: 1px solid #dcdcdc; }
+.insuranceBox h2{ color: #333;}
+.insuranceBox h2,
+.insuranceBox p{ width: 66%; line-height: 16px; /*overflow: hidden; text-overflow: ellipsis; white-space: nowrap;*/ color:#333;}
+.insuranceBox a{ width: 90%; padding:10px 5%; height: 70px; display: block; }
+.publicPro ul li h2,
+.insuranceBox li h2{ font-size: 18px; color: #333; margin-bottom: 2px; font-weight: normal; }
+.publicPro ul li span{ width: 80px; height: 22px; border-radius: 11px; text-align: center; line-height: 22px; font-size: 15px; display: block; color: #fff; margin-top: 5px; }
+.publicPro ul li .text{ text-align: left; padding-left: 7%; vertical-align: top;}
+.publicPro ul li .text p{ width:90%; height: 14px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: #333;}
+.publicPro ul li .text p.ov{overflow: visible;}
+.publicPro ul li.w100{ width: 100%;padding-top:15px;}
+.publicPro ul li.w100 .text{ display: inline-block; width: 50%; padding-left: 4%; }
+.publicPro ul li.w100 .img{ display: inline-block; width: 46%; vertical-align: middle;}
+.publicPro ul li img{ width: 95px; display: inline-block; margin-top: 4px; }
+
+.more{ height: 45px; text-align: right; }
+.more a{ height:21px; padding:12px; display: block;}
+.more .icon{ width:20px; height:20px; border:2px solid #fff; text-align: center; display: inline-block; border-radius: 50%; position: relative; }
+.more .icon i{ width:3px; height:3px; background: #fff; display: block; float: left; margin:8px 0 0 2px; border-radius: 50%;}
+.more .text{ height: 24px; color: #fff; font-size: 15px; line-height: 24px; display: inline-block; float: right; margin-left: 5px;}

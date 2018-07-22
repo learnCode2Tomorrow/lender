@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.lyz.lender.dao.RegisterMapper">
+	<insert id="insertRegisterInfo" parameterType="com.lyz.lender.vo.LenderVO">
+		insert into lend_user_register_t
+		(user_id,user_account,user_name,user_telephone,
+			user_identity_card,user_email,user_address,
+			user_password,delete_status,create_time,modify_time)
+		values
+		<foreach collection="list" item="item" index="index"
+            separator=",">
+            (
+				#{item.userId},
+				#{item.userAccount},
+				#{item.userName},
+				#{item.userTelephone},
+				#{item.userIdentityCard},
+				#{item.userEmail},
+				#{item.userAddress},
+				#{item.userPassword},
+				0,
+				now(),
+				now()
+			)
+        </foreach>
+	</insert>
+	
+	<update id="deleteByTelphone">
+		update lend_user_register_t set delete_status = 1,modify_time = now()
+		where user_telephone = #{param1}
+	</update>
+</mapper> 
