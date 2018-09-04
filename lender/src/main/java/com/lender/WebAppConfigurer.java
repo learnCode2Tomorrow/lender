@@ -5,7 +5,8 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-@Configuration
+//@SuppressWarnings("deprecation")
+//@Configuration
 public class WebAppConfigurer extends WebMvcConfigurerAdapter
 {
 	@Override

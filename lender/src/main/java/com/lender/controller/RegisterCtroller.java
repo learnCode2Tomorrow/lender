@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.lender.common.RestResult;
 import com.lender.service.RegisterService;
 
-import exception.RegisterInfoNotCompleteException;
-
 /**
  * register user information
  * 
@@ -34,7 +32,7 @@ public class RegisterCtroller
 		try
 		{
 			result = loginService.registerUser(registerInfo);
-		} catch (RegisterInfoNotCompleteException e)
+		} catch (Exception e)
 		{
 			logger.error("register information not complete" + e.getMessage());
 			result = false;

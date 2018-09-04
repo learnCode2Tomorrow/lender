@@ -11,7 +11,7 @@ import com.lender.service.LoginService;
 @Service
 public class LoginServiceImpl implements LoginService
 {
-	private final Logger logger = Logger.getLogger(RegisterServiceImpl.class);
+	private final Logger logger = Logger.getLogger(LoginServiceImpl.class);
 
 	@Autowired
 	LoginMapper loginMapper;

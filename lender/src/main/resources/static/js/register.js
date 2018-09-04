@@ -35,17 +35,17 @@ $(function() {
 			}
 		
 		var validateMsg;
-		if(userIdentityCardVlidateRule.rest(registerInfo.userIdentityCard) != true)
-		{
-			validateMsg = "身份证号码不合法";
-			$('#')
-		}
+//		if(userIdentityCardVlidateRule.rest(registerInfo.userIdentityCard) != true)
+//		{
+//			validateMsg = "身份证号码不合法";
+//			$('#')
+//		}
 		
-		if(userTelephoneVlidateRule.rest(registerInfo.userIdentityCard) != true)
-		{
-			validateMsg = "电话号码不合法";
-			$('#')
-		}
+	//		if(userTelephoneVlidateRule.rest(registerInfo.userIdentityCard) != true)
+	//		{
+	//			validateMsg = "电话号码不合法";
+	//			$('#')
+	//		}
 		
 		$.post({
 			url:"/lender/registerCtrl/register",

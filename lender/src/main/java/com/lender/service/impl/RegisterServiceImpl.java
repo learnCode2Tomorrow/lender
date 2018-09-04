@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,18 +15,19 @@ import com.lender.dao.RegisterMapper;
 import com.lender.service.RegisterService;
 import com.lender.vo.LenderVO;
 
-import exception.RegisterInfoNotCompleteException;
-
 @Service
 public class RegisterServiceImpl implements RegisterService
 {
-	private final Logger logger = Logger.getLogger(RegisterServiceImpl.class);
+	// private final Logger logger =
+	// Logger.getLogger(RegisterServiceImpl.class);
+	Logger logger = LoggerFactory.getLogger(RegisterServiceImpl.class);
 
 	@Autowired
 	RegisterMapper registerMapper;
 
 	@Override
-	public boolean registerUser(String registerInfo) throws RegisterInfoNotCompleteException
+	public boolean registerUser(String registerInfo) // throws
+														// RegisterInfoNotCompleteException
 	{
 		logger.info("enter LoginServiceImpl.registerUser");
 		logger.info("parse registerInfo to jsonObject");
@@ -37,7 +39,7 @@ public class RegisterServiceImpl implements RegisterService
 				|| StringHelp.isEmpty(lender.getUserIdentityCard()) || StringHelp.isEmpty(lender.getUserPassword())
 				|| StringHelp.isEmpty(lender.getConfirmPassword()))
 		{
-			throw new RegisterInfoNotCompleteException("注册信息不完整 ");
+			// throw new RegisterInfoNotCompleteException("注册信息不完整 ");
 		}
 
 		lender.setUserId(UUID.randomUUID().toString().replaceAll("-", ""));

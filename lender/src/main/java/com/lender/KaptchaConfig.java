@@ -2,6 +2,8 @@ package com.lender;
 
 import java.util.Properties;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
@@ -11,6 +13,7 @@ import com.google.code.kaptcha.util.Config;
 @Component
 public class KaptchaConfig
 {
+	
 	@Bean
 	public DefaultKaptcha getDefaultKaptcha()
 	{

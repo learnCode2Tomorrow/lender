@@ -3,8 +3,8 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
- <mapper namespace="com.lyz.lender.dao.RegisterMapper">
-	<insert id="insertRegisterInfo" parameterType="com.lyz.lender.vo.LenderVO">
+ <mapper namespace="com.lender.dao.RegisterMapper">
+	<insert id="insertRegisterInfo" parameterType="com.lender.vo.LenderVO">
 		insert into lend_user_register_t
 		(user_id,user_account,user_name,user_telephone,
 			user_identity_card,user_email,user_address,
