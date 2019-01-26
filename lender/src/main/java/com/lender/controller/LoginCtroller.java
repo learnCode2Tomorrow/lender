@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.lender.common.RestResult;
+import com.lender.pojo.LenderVO;
 import com.lender.service.LoginService;
-import com.lender.vo.LenderVO;
 
 /**
  * login
@@ -49,13 +49,6 @@ public class LoginCtroller {
 	LenderVO lender = JSON.toJavaObject(jsonObj, LenderVO.class);
 	String userTelephone = lender.getUserTelephone();
 	String userPassword = lender.getUserPassword();
-	/*
-	 * String verifyCode = lender.getVrifyCode(); if
-	 * (!verifyKaptcha(httpServletRequest, httpServletResponse, verifyCode))
-	 * { result.setResult(false); result.setResultCode("10001"); return
-	 * result; }
-	 */
-
 	boolean loginResult = loginService.login(userTelephone, userPassword);
 	if (loginResult) {
 	    httpServletRequest.getSession().setAttribute("userId", UUID.randomUUID().toString().replaceAll("-", ""));

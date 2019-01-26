@@ -1,7 +1,5 @@
 package com.lender.service.impl;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 import org.slf4j.Logger;
@@ -11,49 +9,43 @@ import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.lender.common.ErrorCodeMsg;
 import com.lender.common.StringHelp;
 import com.lender.dao.RegisterMapper;
+import com.lender.exception.RegisterException;
+import com.lender.exception.RegisterMsgNotCompleteException;
+import com.lender.pojo.LenderVO;
 import com.lender.service.RegisterService;
-import com.lender.vo.LenderVO;
 
 @Service
 public class RegisterServiceImpl implements RegisterService {
-    // private final Logger logger =
-    // Logger.getLogger(RegisterServiceImpl.class);
     Logger logger = LoggerFactory.getLogger(RegisterServiceImpl.class);
 
     @Autowired
     RegisterMapper registerMapper;
 
     @Override
-    public boolean registerUser(String registerInfo) // throws
-						     // RegisterInfoNotCompleteException
-    {
+    public boolean registerUser(String registerInfo) throws RegisterException {
 	logger.info("enter LoginServiceImpl.registerUser");
-	logger.info("parse registerInfo to jsonObject");
 	JSONObject jsonObj = JSON.parseObject(registerInfo);
 	logger.info("parse registerInfo to jsonObject success");
 	LenderVO lender = JSON.toJavaObject(jsonObj, LenderVO.class);
-
 	if (StringHelp.isEmpty(lender.getUserName()) || StringHelp.isEmpty(lender.getUserTelephone())
 		|| StringHelp.isEmpty(lender.getUserIdentityCard()) || StringHelp.isEmpty(lender.getUserPassword())
 		|| StringHelp.isEmpty(lender.getConfirmPassword())) {
-	    // throw new RegisterInfoNotCompleteException("注册信息不完整 ");
+	    logger.error("Register lender information not complete");
+	    throw new RegisterMsgNotCompleteException(ErrorCodeMsg.REGISTER_INFORMATION_NOT_COMPLETE_CODE,
+		    ErrorCodeMsg.REGISTER_INFORMATION_NOT_COMPLETE_MSG);
 	}
-
+	if (null != registerMapper.getLenderByTelphone(lender.getUserTelephone())) {
+	    logger.error("Telephone {} has be registered", lender.getUserTelephone());
+	    throw new RegisterException(ErrorCodeMsg.REGISTER_TELEPHONE_HAVE_USED_CODE,
+		    ErrorCodeMsg.REGISTER_TELEPHONE_HAVE_USED_MSG);
+	}
 	lender.setUserId(UUID.randomUUID().toString().replaceAll("-", ""));
-	List<LenderVO> lenderList = new ArrayList<LenderVO>();
-	lenderList.add(lender);
-	// 手机号进行注册
-	registerMapper.deleteByTelphone(lender.getUserTelephone());
-
-	logger.info("insertRegisterInfo to database");
-	int count = registerMapper.insertRegisterInfo(lenderList);
-	logger.info("leave LoginServiceImpl.registerUser");
-	if (count > 0) {
-	    return true;
-	}
-	return false;
+	registerMapper.insertRegisterInfo(lender);
+	logger.info("Register user {} success telephone");
+	return true;
     }
 
 }

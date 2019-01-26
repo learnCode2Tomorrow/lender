@@ -4,15 +4,13 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
  <mapper namespace="com.lender.dao.RegisterMapper">
-	<insert id="insertRegisterInfo" parameterType="com.lender.vo.LenderVO">
+	<insert id="insertRegisterInfo" parameterType="com.lender.pojo.LenderVO">
 		insert into lend_user_register_t
 		(user_id,user_account,user_name,user_telephone,
 			user_identity_card,user_email,user_address,
 			user_password,delete_status,create_time,modify_time)
 		values
-		<foreach collection="list" item="item" index="index"
-            separator=",">
-            (
+         	(
 				#{item.userId},
 				#{item.userAccount},
 				#{item.userName},
@@ -25,11 +23,25 @@
 				now(),
 				now()
 			)
-        </foreach>
 	</insert>
 	
 	<update id="deleteByTelphone">
 		update lend_user_register_t set delete_status = 1,modify_time = now()
 		where user_telephone = #{param1}
 	</update>
+	
+	<select id="getLenderByTelphone" parameterType="java.lang.String" resultType="com.lender.pojo.LenderVO">
+		select 
+		user_id userId,
+		user_account userAccount,
+		user_name userName,
+		user_telephone userTelephone,
+		user_identity_card userIdentityCard,
+		user_email userEmail,
+		user_address userAddress,
+		user_password userPassword
+		from lend_user_register_t
+		where user_telephone = #{param1}
+	</select>
+	
 </mapper> 

@@ -5,7 +5,7 @@
 
  <mapper namespace="com.lender.dao.LoginMapper">
 	<select id="getUserId" resultType="java.lang.String">
-		select user_id from lend_user_register_t 
+		select user_id from lend_user_register_t 	
 		where user_telephone = #{param1} and user_password = #{param2} and delete_status = 0
 	</select>
 </mapper> 

@@ -1,4 +1,4 @@
-package com.lender.vo;
+package com.lender.pojo;
 
 /**
  * lender information entity class
