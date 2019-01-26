@@ -1,6 +1,7 @@
 package com.lender.controller;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,30 +18,26 @@ import com.lender.service.RegisterService;
  */
 @RestController
 @RequestMapping("/lender/registerCtrl")
-public class RegisterCtroller
-{
-	private final Logger logger = Logger.getLogger(RegisterCtroller.class);
-	@Autowired
-	RegisterService loginService;
+public class RegisterCtroller {
+    private static final Logger logger = LoggerFactory.getLogger(RegisterCtroller.class);
+    @Autowired
+    RegisterService loginService;
 
-	@RequestMapping("/register")
-	public RestResult<String> register(@RequestParam("registerInfo") String registerInfo)
-	{
-		logger.info("enter into register");
-		RestResult<String> restResult = new RestResult<String>();
-		boolean result;
-		try
-		{
-			result = loginService.registerUser(registerInfo);
-		} catch (Exception e)
-		{
-			logger.error("register information not complete" + e.getMessage());
-			result = false;
-			restResult.setResultCode("20001");
-			restResult.setResultMessage(e.getMessage());
-		}
-		restResult.setResult(result);
-		logger.info("leave register");
-		return restResult;
+    @RequestMapping("/register")
+    public RestResult<String> register(@RequestParam("registerInfo") String registerInfo) {
+	logger.info("enter into register");
+	RestResult<String> restResult = new RestResult<String>();
+	boolean result;
+	try {
+	    result = loginService.registerUser(registerInfo);
+	} catch (Exception e) {
+	    logger.error("register information not complete" + e.getMessage());
+	    result = false;
+	    restResult.setResultCode("20001");
+	    restResult.setResultMessage(e.getMessage());
 	}
+	restResult.setResult(result);
+	logger.info("leave register");
+	return restResult;
+    }
 }

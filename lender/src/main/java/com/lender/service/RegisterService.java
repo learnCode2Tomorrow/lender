@@ -1,7 +1,5 @@
 package com.lender.service;
 
-public interface RegisterService
-{
-	public boolean registerUser(String registerInfo);
-
+public interface RegisterService {
+    public boolean registerUser(String registerInfo);
 }

@@ -10,16 +10,15 @@ import org.springframework.context.annotation.Configuration;
 @MapperScan("com.lender.dao")
 public class LenderApplication // extends SpringBootServletInitializer
 {
-	public static void main(String[] args)
-	{
-		SpringApplication.run(LenderApplication.class, args);
-	}
+    public static void main(String[] args) {
+	SpringApplication.run(LenderApplication.class, args);
+    }
 
-	// @Override
-	// protected SpringApplicationBuilder configure(SpringApplicationBuilder
-	// application)
-	// {
-	// return application.sources(LenderApplication.class);
-	// }
+    // @Override
+    // protected SpringApplicationBuilder configure(SpringApplicationBuilder
+    // application)
+    // {
+    // return application.sources(LenderApplication.class);
+    // }
 
 }
