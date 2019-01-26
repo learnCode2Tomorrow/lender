@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.lender.common.RestResult;
 import com.lender.service.LoginService;
@@ -44,8 +45,8 @@ public class LoginCtroller {
 	    HttpServletResponse httpServletResponse) {
 	logger.info("enter into login");
 	RestResult<String> result = new RestResult<String>();
-	JSONObject jsonObj = JSONObject.parseObject(loginInfo);
-	LenderVO lender = JSONObject.toJavaObject(jsonObj, LenderVO.class);
+	JSONObject jsonObj = JSON.parseObject(loginInfo);
+	LenderVO lender = JSON.toJavaObject(jsonObj, LenderVO.class);
 	String userTelephone = lender.getUserTelephone();
 	String userPassword = lender.getUserPassword();
 	/*

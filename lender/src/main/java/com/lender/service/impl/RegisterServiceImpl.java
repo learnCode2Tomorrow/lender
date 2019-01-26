@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.lender.common.StringHelp;
 import com.lender.dao.RegisterMapper;
@@ -30,9 +31,9 @@ public class RegisterServiceImpl implements RegisterService {
     {
 	logger.info("enter LoginServiceImpl.registerUser");
 	logger.info("parse registerInfo to jsonObject");
-	JSONObject jsonObj = JSONObject.parseObject(registerInfo);
+	JSONObject jsonObj = JSON.parseObject(registerInfo);
 	logger.info("parse registerInfo to jsonObject success");
-	LenderVO lender = JSONObject.toJavaObject(jsonObj, LenderVO.class);
+	LenderVO lender = JSON.toJavaObject(jsonObj, LenderVO.class);
 
 	if (StringHelp.isEmpty(lender.getUserName()) || StringHelp.isEmpty(lender.getUserTelephone())
 		|| StringHelp.isEmpty(lender.getUserIdentityCard()) || StringHelp.isEmpty(lender.getUserPassword())
